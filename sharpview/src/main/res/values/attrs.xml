@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="SharpView">
-        <attr name="radius" format="dimension"/>
-        <attr name="backgroundColor" format="color"/>
-        <attr name="arrowDirection">
-            <enum name="left" value="1"/>
-            <enum name="top" value="2"/>
-            <enum name="right" value="3"/>
-            <enum name="bottom" value="4"/>
-        </attr>
-        <attr name = "relativePosition" format = "fraction" />
-        <attr name = "sharpSize" format = "fraction" />
+    <attr name="radius" format="dimension"/>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="arrowDirection">
+        <enum name="left" value="1"/>
+        <enum name="top" value="2"/>
+        <enum name="right" value="3"/>
+        <enum name="bottom" value="4"/>
+    </attr>
+    <attr name = "relativePosition" format = "fraction" />
+    <attr name = "sharpSize" format = "dimension" />
+
+    <declare-styleable name="SharpRelativeLayout">
+        <attr name="radius"/>
+        <attr name="backgroundColor"/>
+        <attr name="arrowDirection"/>
+        <attr name = "relativePosition"/>
+        <attr name = "sharpSize"/>
+    </declare-styleable>
+
+    <declare-styleable name="SharpLinearLayout">
+        <attr name="radius"/>
+        <attr name="backgroundColor"/>
+        <attr name="arrowDirection"/>
+        <attr name = "relativePosition"/>
+        <attr name = "sharpSize"/>
+    </declare-styleable>
+
+    <declare-styleable name="SharpTextView">
+        <attr name="radius"/>
+        <attr name="backgroundColor"/>
+        <attr name="arrowDirection"/>
+        <attr name = "relativePosition"/>
+        <attr name = "sharpSize"/>
     </declare-styleable>
 
 </resources>

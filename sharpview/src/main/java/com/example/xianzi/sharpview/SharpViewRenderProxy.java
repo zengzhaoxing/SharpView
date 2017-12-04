@@ -10,49 +10,42 @@ public class SharpViewRenderProxy {
 
     private View mView;
 
-    public void setRadius(float radius) {
-        mRadius = radius;
-        refreshView();
-    }
-
-    public void setBackgroundColor(int backgroundColor) {
-        mBackgroundColor = backgroundColor;
-        refreshView();
-    }
-
-    public void setIntDirection(int intDirection) {
-        mIntDirection = intDirection;
-        refreshView();
-    }
-
-    public void setRelativePosition(float relativePosition) {
-        mRelativePosition = relativePosition;
-        refreshView();
-    }
-
-    public void setShareSizePosition(float shareSizePosition) {
-        mShareSizePosition = shareSizePosition;
-        refreshView();
-    }
-
     private float mRadius;
 
     private int mBackgroundColor;
 
-    private int mIntDirection;
-
     private float mRelativePosition;
 
-    private float mShareSizePosition;
+    private float mSharpSize;
+
+    private SharpView.ArrowDirection mArrowDirection = SharpView.ArrowDirection.LEFT;
 
     SharpViewRenderProxy(View view, Context context, AttributeSet attrs, int defStyleAttr) {
         mView = view;
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SharpView, defStyleAttr, 0);
-        mRadius = a.getDimension(R.styleable.SharpView_radius, 0);
-        mBackgroundColor = a.getColor(R.styleable.SharpView_backgroundColor, 0);
-        mIntDirection = a.getInt(R.styleable.SharpView_arrowDirection, 3);
-        mRelativePosition = a.getFraction(R.styleable.SharpView_relativePosition, 1, 1, 0.5f);
-        mShareSizePosition = a.getFraction(R.styleable.SharpView_relativePosition, 1, 1, 0.2f);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SharpTextView, defStyleAttr, 0);
+        mRadius = a.getDimension(R.styleable.SharpTextView_radius, 0);
+        mBackgroundColor = a.getColor(R.styleable.SharpTextView_backgroundColor, 0);
+        int direction = a.getInt(R.styleable.SharpTextView_arrowDirection, 3);
+        mRelativePosition = a.getFraction(R.styleable.SharpTextView_relativePosition, 1, 1, 0.5f);
+        mSharpSize = a.getDimension(R.styleable.SharpLinearLayout_sharpSize,10);
+        switch (direction) {
+            case 1:
+                mArrowDirection = SharpView.ArrowDirection.LEFT;
+                mView.setPadding((int) (mView.getPaddingLeft() + mSharpSize),mView.getPaddingTop(),mView.getPaddingRight(),mView.getPaddingBottom());
+                break;
+            case 2:
+                mArrowDirection = SharpView.ArrowDirection.TOP;
+                mView.setPadding(mView.getPaddingLeft(), (int) (mView.getPaddingTop() + mSharpSize),mView.getPaddingRight(),mView.getPaddingBottom());
+                break;
+            case 3:
+                mArrowDirection =  SharpView.ArrowDirection.RIGHT;
+                mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(), (int) (mView.getPaddingRight() + mSharpSize),mView.getPaddingBottom());
+                break;
+            case 4:
+                mArrowDirection = SharpView.ArrowDirection.BOTTOM;
+                mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(),mView.getPaddingRight(), (int) (mView.getPaddingBottom() + mSharpSize));
+                break;
+        }
         a.recycle();
         refreshView();
     }
@@ -65,30 +58,36 @@ public class SharpViewRenderProxy {
             bd = new SharpDrawable();
         }
         bd.setBgColor(mBackgroundColor);
-        bd.setSharpSizePosition(mShareSizePosition);
-        SharpDrawable.ArrowDirection direction = null;
-        switch (mIntDirection) {
-            case 1:
-                direction = SharpDrawable.ArrowDirection.LEFT;
-                //mView.setPadding(mView.getPaddingLeft() + length,mView.getPaddingTop(),mView.getPaddingRight(),mView.getPaddingBottom());
-                break;
-            case 2:
-                direction = SharpDrawable.ArrowDirection.TOP;
-                //mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop() + length,mView.getPaddingRight(),mView.getPaddingBottom());
-                break;
-            case 3:
-                direction =  SharpDrawable.ArrowDirection.RIGHT;
-                //mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(),mView.getPaddingRight() + length,mView.getPaddingBottom());
-                break;
-            case 4:
-                direction = SharpDrawable.ArrowDirection.BOTTOM;
-                //mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(),mView.getPaddingRight(),mView.getPaddingBottom() + length);
-                break;
-        }
-        bd.setArrowDirection(direction);
+        bd.setSharpSize(mSharpSize);
+        bd.setArrowDirection(mArrowDirection);
         bd.setCornerRadius(mRadius);
         bd.setRelativePosition(mRelativePosition);
         mView.setBackgroundDrawable(bd);
+    }
+
+    public void setRadius(float radius) {
+        mRadius = radius;
+        refreshView();
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        mBackgroundColor = backgroundColor;
+        refreshView();
+    }
+
+    public void setRelativePosition(float relativePosition) {
+        mRelativePosition = relativePosition;
+        refreshView();
+    }
+
+    public void setSharpSize(float sharpSize) {
+        mSharpSize = sharpSize;
+        refreshView();
+    }
+
+    public void setArrowDirection(SharpView.ArrowDirection arrowDirection) {
+        mArrowDirection = arrowDirection;
+        refreshView();
     }
 
 }

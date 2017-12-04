@@ -13,10 +13,6 @@ import android.support.annotation.NonNull;
 
 class SharpDrawable extends Drawable {
 
-    enum ArrowDirection {
-        LEFT, TOP, RIGHT, BOTTOM
-    }
-
     void setBgColor(int bgColor) {
         mBgColor = bgColor;
     }
@@ -25,7 +21,7 @@ class SharpDrawable extends Drawable {
         mCornerRadius = cornerRadius;
     }
 
-    void setArrowDirection(ArrowDirection arrowDirection) {
+    void setArrowDirection(SharpView.ArrowDirection arrowDirection) {
         mArrowDirection = arrowDirection;
     }
 
@@ -33,17 +29,17 @@ class SharpDrawable extends Drawable {
         mRelativePosition = Math.min(Math.max(relativePosition,0),1);
     }
 
-    void setSharpSizePosition(float sharpSizePosition) {
-        mSharpSizePosition = sharpSizePosition;
+    void setSharpSize(float sharpSize) {
+        mSharpSize = sharpSize;
     }
 
-    private float mSharpSizePosition;
+    private float mSharpSize;
 
     private int mBgColor;
 
     private float mCornerRadius;
 
-    private ArrowDirection mArrowDirection;
+    private SharpView.ArrowDirection mArrowDirection;
 
     /**
      * from 0 to 1
@@ -76,44 +72,39 @@ class SharpDrawable extends Drawable {
         int top = bounds.top;
         int right = bounds.right;
         int bottom = bounds.bottom;
-        int sharpLength;
-        float length;
+        float length ;
         switch (mArrowDirection){
             case LEFT:
-                sharpLength = (int) (bounds.height() * mSharpSizePosition);
-                left += sharpLength;
-                length = Math.max(mRelativePosition * bounds.height() + bounds.top, sharpLength + mCornerRadius);
-                length = Math.min(length,bounds.height() - sharpLength - mCornerRadius);
+                left += mSharpSize;
+                length = Math.max(mRelativePosition * bounds.height() + bounds.top, mSharpSize + mCornerRadius);
+                length = Math.min(length,bounds.height() - mSharpSize - mCornerRadius);
                 mPointFs[0].set(bounds.left,length + bounds.top);
-                mPointFs[1].set(mPointFs[0].x + sharpLength,mPointFs[0].y - sharpLength);
-                mPointFs[2].set(mPointFs[0].x + sharpLength,mPointFs[0].y + sharpLength);
+                mPointFs[1].set(mPointFs[0].x + mSharpSize,mPointFs[0].y - mSharpSize);
+                mPointFs[2].set(mPointFs[0].x + mSharpSize,mPointFs[0].y + mSharpSize);
                 break;
             case TOP:
-                sharpLength = (int) (bounds.width() * mSharpSizePosition);
-                top += sharpLength;
-                length = Math.max(mRelativePosition * bounds.width() + bounds.top, sharpLength + mCornerRadius);
-                length = Math.min(length,bounds.width() - sharpLength - mCornerRadius);
+                top += mSharpSize;
+                length = Math.max(mRelativePosition * bounds.width() + bounds.top, mSharpSize + mCornerRadius);
+                length = Math.min(length,bounds.width() - mSharpSize - mCornerRadius);
                 mPointFs[0].set(bounds.left + length,bounds.top);
-                mPointFs[1].set(mPointFs[0].x - sharpLength, mPointFs[0].y + sharpLength);
-                mPointFs[2].set(mPointFs[0].x + sharpLength, mPointFs[0].y + sharpLength);
+                mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y + mSharpSize);
+                mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y + mSharpSize);
                 break;
             case RIGHT:
-                sharpLength = (int) (bounds.height() * mSharpSizePosition);
-                right -= sharpLength;
-                length = Math.max(mRelativePosition * bounds.height() + bounds.top, sharpLength + mCornerRadius);
-                length = Math.min(length,bounds.height() - sharpLength - mCornerRadius);
+                right -= mSharpSize;
+                length = Math.max(mRelativePosition * bounds.height() + bounds.top, mSharpSize + mCornerRadius);
+                length = Math.min(length,bounds.height() - mSharpSize - mCornerRadius);
                 mPointFs[0].set(bounds.right,length + bounds.top);
-                mPointFs[1].set(mPointFs[0].x - sharpLength,mPointFs[0].y - sharpLength);
-                mPointFs[2].set(mPointFs[0].x - sharpLength,mPointFs[0].y + sharpLength);
+                mPointFs[1].set(mPointFs[0].x - mSharpSize,mPointFs[0].y - mSharpSize);
+                mPointFs[2].set(mPointFs[0].x - mSharpSize,mPointFs[0].y + mSharpSize);
                 break;
             case BOTTOM:
-                sharpLength = (int) (bounds.height() * mSharpSizePosition);
-                bottom -= sharpLength;
-                length = Math.max(mRelativePosition * bounds.width() + bounds.top, sharpLength + mCornerRadius);
-                length = Math.min(length,bounds.width() - sharpLength - mCornerRadius);
+                bottom -= mSharpSize;
+                length = Math.max(mRelativePosition * bounds.width() + bounds.top, mSharpSize + mCornerRadius);
+                length = Math.min(length,bounds.width() - mSharpSize - mCornerRadius);
                 mPointFs[0].set(bounds.left + length,bounds.bottom);
-                mPointFs[1].set(mPointFs[0].x - sharpLength, mPointFs[0].y - sharpLength);
-                mPointFs[2].set(mPointFs[0].x + sharpLength, mPointFs[0].y - sharpLength);
+                mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y - mSharpSize);
+                mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y - mSharpSize);
                 break;
         }
         mRect.set(left,top,right,bottom);
