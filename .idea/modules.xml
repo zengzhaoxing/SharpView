@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharpview/sharpview.iml" filepath="$PROJECT_DIR$/sharpview/sharpview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharpview/sharpview.iml" filepath="$PROJECT_DIR$/sharpview/sharpview.iml" />
     </modules>
   </component>
 </project>
