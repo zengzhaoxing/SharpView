@@ -10,7 +10,7 @@
                 android:orientation="vertical"
                 android:background="@android:color/holo_red_light">
 
-    <com.example.xianzi.sharpview.SharpTextView
+    <com.zhaoxing.view.sharpview.SharpTextView
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:textColor="@android:color/white"
@@ -24,7 +24,7 @@
         app:sharpSize="10dp"
         />
 
-    <com.example.xianzi.sharpview.SharpLinearLayout
+    <com.zhaoxing.view.sharpview.SharpLinearLayout
         android:id="@+id/sharp_ll"
         android:layout_width="300dp"
         android:layout_height="100dp"
@@ -53,6 +53,6 @@
             android:textColor="@android:color/holo_blue_light"
             android:text="this is another child view"/>
 
-    </com.example.xianzi.sharpview.SharpLinearLayout>
+    </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
 </LinearLayout>
