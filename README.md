@@ -4,7 +4,7 @@
 custom TextView,LinearLayout,RelativeLayout with sharp
 
 ## Screenshots
-<a href="ext/sharp_demo.png"><img src="ext/sharp_demo.png" width="50% height="50%/></a>
+<a href="ext/sharp_demo.png"><img src="ext/sharp_demo.png" width="50%" height="50%"/></a>
 
 ## Import
 ```java
@@ -113,6 +113,8 @@ sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
 # License
 
 Copyright 2017 zengzhaoxing
+
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
