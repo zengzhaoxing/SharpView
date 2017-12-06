@@ -63,7 +63,7 @@ sharpSize    | dimension    | sharp length
 * 1.In the XML
 ```java
 
-       <com.example.xianzi.sharpview.SharpTextView
+       <com.zhaoxing.view.sharpview.SharpTextView
            android:layout_width="200dp"
            android:layout_height="70dp"
            android:textColor="@android:color/white"
@@ -77,7 +77,7 @@ sharpSize    | dimension    | sharp length
            app:sharpSize="10dp"
            />
    
-       <com.example.xianzi.sharpview.SharpLinearLayout
+       <com.zhaoxing.view.sharpview.SharpLinearLayout
            android:id="@+id/sharp_ll"
            android:layout_width="300dp"
            android:layout_height="100dp"
