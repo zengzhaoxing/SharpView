@@ -1,16 +1,17 @@
 # SharpView
 [![](https://www.jitpack.io/v/zengzhaoxing/SharpView.svg)](https://www.jitpack.io/#zengzhaoxing/SharpView)
+
 custom TextView,LinearLayout,RelativeLayout with sharp
 
 ## Screenshots
-<a href="ext/sharp_demo.png"><img src="ext/sharp_demo.png"/></a>
+<a href="ext/sharp_demo.png"><img src="ext/sharp_demo.png" width="50% height="50%/></a>
 
 ## Import
 ```java
 
  Step 1. Add the JitPack repository to your build file
  Add it in your root build.gradle at the end of repositories:
-
+ 
 	allprojects {
 		repositories {
 			...
@@ -30,23 +31,19 @@ Step 2. Add the dependency
 ## Maven
 ```java
 Step 1.
-
 <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-
-
+   <repository>
+	  <id>jitpack.io</id>
+	  <url>https://jitpack.io</url>
+   </repository>
+</repositories>
 
 Step 2. Add the dependency
-
-	<dependency>
-	    <groupId>com.github.zengzhaoxing</groupId>
-	    <artifactId>SharpView</artifactId>
-	    <version>v1.0.0</version>
-	</dependency>
+<dependency>
+    <groupId>com.github.zengzhaoxing</groupId>
+    <artifactId>SharpView</artifactId>
+    <version>v1.0.0</version>
+</dependency>
 
 ```
 ## Directions
@@ -57,7 +54,7 @@ name | format | instructions
 -----|------|----
 radius    | dimension    | radius of the view corner
 backgroundColor   | color     | backgroundColor
-arrowDirection    | enum    | the sharp location,and one of the(top,left,right,bottom)
+arrowDirection    | enum    | the sharp location,can be one of the(top,left,right,bottom)
 relativePosition   | relativePosition| relative position of the sharp
 sharpSize    | dimension    | sharp length
 
@@ -114,6 +111,7 @@ sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
 ```
 
 # License
+
 Copyright 2017 zengzhaoxing
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
