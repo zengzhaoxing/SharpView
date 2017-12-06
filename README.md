@@ -24,7 +24,7 @@ custom TextView,LinearLayout,RelativeLayout with sharp
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.zengzhaoxing:SharpView:v1.0.0'
+	        compile 'com.github.zengzhaoxing:SharpView:v2.0.0'
 	}
 
 ```
@@ -42,7 +42,7 @@ Step 2. Add the dependency
 <dependency>
     <groupId>com.github.zengzhaoxing</groupId>
     <artifactId>SharpView</artifactId>
-    <version>v1.0.0</version>
+    <version>v2.0.0</version>
 </dependency>
 
 ```
