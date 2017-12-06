@@ -8,7 +8,7 @@
                 android:gravity="center_horizontal"
                 android:paddingTop="100dp"
                 android:orientation="vertical"
-                android:background="@android:color/holo_red_light">
+                android:background="@android:color/white">
 
     <com.zhaoxing.view.sharpview.SharpTextView
         android:layout_width="200dp"
@@ -18,8 +18,8 @@
         android:gravity="center"
         android:textSize="18sp"
         app:radius="5dp"
-        app:arrowDirection="top"
-        app:backgroundColor="#f0000000"
+        app:arrowDirection="bottom"
+        app:backgroundColor="#ffff0000"
         app:relativePosition="20%"
         app:sharpSize="10dp"
         />

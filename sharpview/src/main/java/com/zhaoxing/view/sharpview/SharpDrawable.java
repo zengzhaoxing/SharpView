@@ -80,6 +80,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left,length + bounds.top);
                 mPointFs[1].set(mPointFs[0].x + mSharpSize,mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize,mPointFs[0].y + mSharpSize);
+                mRect.set(left,top - 1,right,bottom);
                 break;
             case TOP:
                 top += mSharpSize;
@@ -88,6 +89,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left + length,bounds.top);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y + mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y + mSharpSize);
+                mRect.set(left,top - 1,right,bottom);
                 break;
             case RIGHT:
                 right -= mSharpSize;
@@ -96,6 +98,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.right,length + bounds.top);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize,mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x - mSharpSize,mPointFs[0].y + mSharpSize);
+                mRect.set(left,top,right + 1,bottom);
                 break;
             case BOTTOM:
                 bottom -= mSharpSize;
@@ -104,9 +107,9 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left + length,bounds.bottom);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y - mSharpSize);
+                mRect.set(left,top,right,bottom + 1);
                 break;
         }
-        mRect.set(left,top,right,bottom);
 
         mPath.reset();
         mPath.moveTo(mPointFs[0].x, mPointFs[0].y);
