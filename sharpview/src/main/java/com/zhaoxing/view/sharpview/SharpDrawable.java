@@ -9,7 +9,6 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 
 class SharpDrawable extends Drawable {
 
@@ -65,7 +64,7 @@ class SharpDrawable extends Drawable {
     }
 
     @Override
-    public void draw(@NonNull Canvas canvas) {
+    public void draw(Canvas canvas) {
         mPaint.setColor(mBgColor);
         Rect bounds = getBounds();
         int left = bounds.left;

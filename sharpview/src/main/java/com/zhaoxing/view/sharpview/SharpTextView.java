@@ -1,10 +1,10 @@
 package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
-public class SharpTextView extends AppCompatTextView implements SharpView {
+public class SharpTextView extends TextView implements SharpView {
 
     public SharpTextView(Context context) {
         super(context);
