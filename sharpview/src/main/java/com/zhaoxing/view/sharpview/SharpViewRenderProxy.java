@@ -18,16 +18,32 @@ public class SharpViewRenderProxy {
 
     private float mSharpSize;
 
+    private float mBorder;
+
+    private int mBorderColor;
+
     private SharpView.ArrowDirection mArrowDirection = SharpView.ArrowDirection.LEFT;
+
+    public void setBorder(float border) {
+        mBorder = border;
+        refreshView();
+    }
+
+    public void setBorderColor(int borderColor) {
+        mBorderColor = borderColor;
+        refreshView();
+    }
 
     SharpViewRenderProxy(View view, Context context, AttributeSet attrs, int defStyleAttr) {
         mView = view;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SharpTextView, defStyleAttr, 0);
         mRadius = a.getDimension(R.styleable.SharpTextView_radius, 0);
+        mBorder = a.getDimension(R.styleable.SharpTextView_border, 0);
         mBackgroundColor = a.getColor(R.styleable.SharpTextView_backgroundColor, 0);
+        mBorderColor = a.getColor(R.styleable.SharpTextView_borderColor, 0);
         int direction = a.getInt(R.styleable.SharpTextView_arrowDirection, 3);
         mRelativePosition = a.getFraction(R.styleable.SharpTextView_relativePosition, 1, 1, 0.5f);
-        mSharpSize = a.getDimension(R.styleable.SharpLinearLayout_sharpSize,10);
+        mSharpSize = a.getDimension(R.styleable.SharpLinearLayout_sharpSize,0);
         switch (direction) {
             case 1:
                 mArrowDirection = SharpView.ArrowDirection.LEFT;
@@ -61,6 +77,8 @@ public class SharpViewRenderProxy {
         bd.setSharpSize(mSharpSize);
         bd.setArrowDirection(mArrowDirection);
         bd.setCornerRadius(mRadius);
+        bd.setBorder(mBorder);
+        bd.setBorderColor(mBorderColor);
         bd.setRelativePosition(mRelativePosition);
         mView.setBackgroundDrawable(bd);
     }

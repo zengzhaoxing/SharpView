@@ -11,6 +11,8 @@
     </attr>
     <attr name = "relativePosition" format = "fraction" />
     <attr name = "sharpSize" format = "dimension" />
+    <attr name="border" format="dimension"/>
+    <attr name="borderColor" format="color"/>
 
     <declare-styleable name="SharpRelativeLayout">
         <attr name="radius"/>
@@ -18,6 +20,8 @@
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
+        <attr name="border"/>
+        <attr name="borderColor" />
     </declare-styleable>
 
     <declare-styleable name="SharpLinearLayout">
@@ -26,6 +30,8 @@
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
+        <attr name="border"/>
+        <attr name="borderColor" />
     </declare-styleable>
 
     <declare-styleable name="SharpTextView">
@@ -34,6 +40,18 @@
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
+        <attr name="border"/>
+        <attr name="borderColor" />
+    </declare-styleable>
+
+    <declare-styleable name="SharpEditText">
+        <attr name="radius"/>
+        <attr name="backgroundColor"/>
+        <attr name="arrowDirection"/>
+        <attr name = "relativePosition"/>
+        <attr name = "sharpSize"/>
+        <attr name="border"/>
+        <attr name="borderColor" />
     </declare-styleable>
 
 </resources>

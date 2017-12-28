@@ -28,6 +28,14 @@ class SharpDrawable extends Drawable {
         mRelativePosition = Math.min(Math.max(relativePosition,0),1);
     }
 
+    void setBorder(float border) {
+        mBorder = border;
+    }
+
+    void setBorderColor(int borderColor) {
+        mBorderColor = borderColor;
+    }
+
     void setSharpSize(float sharpSize) {
         mSharpSize = sharpSize;
     }
@@ -39,6 +47,10 @@ class SharpDrawable extends Drawable {
     private float mCornerRadius;
 
     private SharpView.ArrowDirection mArrowDirection;
+
+    private float mBorder;
+
+    private int mBorderColor;
 
     /**
      * from 0 to 1
@@ -55,6 +67,7 @@ class SharpDrawable extends Drawable {
 
     SharpDrawable() {
         mPaint = new Paint();
+        mPaint.setAntiAlias(true);
         mRect = new RectF();
         mPointFs = new PointF[3];
         mPath = new Path();
@@ -65,7 +78,6 @@ class SharpDrawable extends Drawable {
 
     @Override
     public void draw(Canvas canvas) {
-        mPaint.setColor(mBgColor);
         Rect bounds = getBounds();
         int left = bounds.left;
         int top = bounds.top;
@@ -80,7 +92,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left,length + bounds.top);
                 mPointFs[1].set(mPointFs[0].x + mSharpSize,mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize,mPointFs[0].y + mSharpSize);
-                mRect.set(left - 2,top,right,bottom);
+                mRect.set(left,top,right,bottom);
                 break;
             case TOP:
                 top += mSharpSize;
@@ -89,7 +101,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left + length,bounds.top);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y + mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y + mSharpSize);
-                mRect.set(left,top - 2,right,bottom);
+                mRect.set(left,top,right,bottom);
                 break;
             case RIGHT:
                 right -= mSharpSize;
@@ -98,7 +110,7 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.right,length + bounds.top);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize,mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x - mSharpSize,mPointFs[0].y + mSharpSize);
-                mRect.set(left,top,right + 2,bottom);
+                mRect.set(left,top,right,bottom);
                 break;
             case BOTTOM:
                 bottom -= mSharpSize;
@@ -107,18 +119,23 @@ class SharpDrawable extends Drawable {
                 mPointFs[0].set(bounds.left + length,bounds.bottom);
                 mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y - mSharpSize);
                 mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y - mSharpSize);
-                mRect.set(left,top,right,bottom + 2);
+                mRect.set(left,top,right,bottom);
                 break;
         }
+        mPath.reset();
+        mPath.addRoundRect(mRect,mCornerRadius,mCornerRadius, Path.Direction.CW);
+        mPaint.setColor(mBorderColor);
+        canvas.drawPath(mPath, mPaint);
 
         mPath.reset();
+        mRect.set(mRect.left + mBorder,mRect.top + mBorder,mRect.right - mBorder,mRect.bottom - mBorder);
+        mPath.addRoundRect(mRect,mCornerRadius,mCornerRadius, Path.Direction.CW);
         mPath.moveTo(mPointFs[0].x, mPointFs[0].y);
         mPath.lineTo(mPointFs[1].x, mPointFs[1].y);
         mPath.lineTo(mPointFs[2].x, mPointFs[2].y);
         mPath.close();
-        mPaint.setAntiAlias(true);
-        canvas.drawRoundRect(mRect,mCornerRadius,mCornerRadius,mPaint);
-        canvas.drawPath(mPath,mPaint);
+        mPaint.setColor(mBgColor);
+        canvas.drawPath(mPath, mPaint);
     }
 
     @Override
