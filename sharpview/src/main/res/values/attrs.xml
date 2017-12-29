@@ -13,6 +13,10 @@
     <attr name = "sharpSize" format = "dimension" />
     <attr name="border" format="dimension"/>
     <attr name="borderColor" format="color"/>
+    <attr name="left_top_radius" format="dimension"/>
+    <attr name="right_top_radius" format="dimension"/>
+    <attr name="right_bottom_radius" format="dimension"/>
+    <attr name="left_bottom_radius" format="dimension"/>
 
     <declare-styleable name="SharpRelativeLayout">
         <attr name="radius"/>
@@ -22,6 +26,10 @@
         <attr name = "sharpSize"/>
         <attr name="border"/>
         <attr name="borderColor" />
+        <attr name="left_top_radius"/>
+        <attr name="right_top_radius"/>
+        <attr name="right_bottom_radius"/>
+        <attr name="left_bottom_radius"/>
     </declare-styleable>
 
     <declare-styleable name="SharpLinearLayout">
@@ -32,6 +40,10 @@
         <attr name = "sharpSize"/>
         <attr name="border"/>
         <attr name="borderColor" />
+        <attr name="left_top_radius"/>
+        <attr name="right_top_radius"/>
+        <attr name="right_bottom_radius"/>
+        <attr name="left_bottom_radius"/>
     </declare-styleable>
 
     <declare-styleable name="SharpTextView">
@@ -42,6 +54,10 @@
         <attr name = "sharpSize"/>
         <attr name="border"/>
         <attr name="borderColor" />
+        <attr name="left_top_radius"/>
+        <attr name="right_top_radius"/>
+        <attr name="right_bottom_radius"/>
+        <attr name="left_bottom_radius"/>
     </declare-styleable>
 
     <declare-styleable name="SharpEditText">
@@ -52,6 +68,10 @@
         <attr name = "sharpSize"/>
         <attr name="border"/>
         <attr name="borderColor" />
+        <attr name="left_top_radius"/>
+        <attr name="right_top_radius"/>
+        <attr name="right_bottom_radius"/>
+        <attr name="left_bottom_radius"/>
     </declare-styleable>
 
 </resources>

@@ -61,11 +61,9 @@
         android:layout_marginTop="20dp"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:backgroundColor="#FF0000FF"
-        app:radius="25dp"
+        app:backgroundColor="#00000000"
         app:border="1dp"
-        app:sharpSize="10dp"
-        app:arrowDirection="bottom"
+        app:right_bottom_radius="25dp"
         app:borderColor="#ffff0000"/>
 
 </LinearLayout>
