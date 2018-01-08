@@ -24,7 +24,7 @@ custom TextView,LinearLayout,RelativeLayout with sharp
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.zengzhaoxing:SharpView:v2.0.0'
+	        compile 'com.github.zengzhaoxing:SharpView:v2.2.0'
 	}
 
 ```
@@ -42,7 +42,7 @@ Step 2. Add the dependency
 <dependency>
     <groupId>com.github.zengzhaoxing</groupId>
     <artifactId>SharpView</artifactId>
-    <version>v2.0.0</version>
+    <version>v2.2.0</version>
 </dependency>
 
 ```
@@ -55,8 +55,10 @@ name | format | instructions
 radius    | dimension    | radius of the view corner
 backgroundColor   | color     | backgroundColor
 arrowDirection    | enum    | the sharp location,can be one of the(top,left,right,bottom)
-relativePosition   | relativePosition| relative position of the sharp
-sharpSize    | dimension    | sharp length
+relativePosition   | fraction| relative position of the sharp
+sharpSize    | dimension    | sharp length,default is 0
+border    | dimension    | border width,default is 0
+borderColor    | color    | color of the border
 
 ## Usage
 
