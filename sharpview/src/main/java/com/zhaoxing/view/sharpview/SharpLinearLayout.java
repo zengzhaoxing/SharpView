@@ -2,7 +2,8 @@ package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+
+import com.rey.material.widget.LinearLayout;
 
 
 public class SharpLinearLayout extends LinearLayout implements SharpView {

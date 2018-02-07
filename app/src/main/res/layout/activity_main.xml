@@ -11,6 +11,17 @@
                 android:background="@android:color/white">
 
     <com.zhaoxing.view.sharpview.SharpTextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textColor="@android:color/white"
+        android:text="54654654"
+        android:gravity="center"
+        app:radius="25dp"
+        app:startBgColor="#ffff0000"
+        app:middleBgColor="#ffff00ff"
+        app:endBgColor="#ffffff00"/>
+
+    <com.zhaoxing.view.sharpview.SharpTextView
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:textColor="@android:color/white"
@@ -21,7 +32,7 @@
         app:arrowDirection="bottom"
         app:backgroundColor="#ffff0000"
         app:relativePosition="20%"
-        app:sharpSize="10dp"
+        app:sharpSize="0dp"
         />
 
     <com.zhaoxing.view.sharpview.SharpLinearLayout
@@ -57,13 +68,6 @@
 
     </com.zhaoxing.view.sharpview.SharpLinearLayout>
 
-    <com.zhaoxing.view.sharpview.SharpEditText
-        android:layout_marginTop="20dp"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        app:backgroundColor="#00000000"
-        app:border="1dp"
-        app:right_bottom_radius="25dp"
-        app:borderColor="#ffff0000"/>
+
 
 </LinearLayout>

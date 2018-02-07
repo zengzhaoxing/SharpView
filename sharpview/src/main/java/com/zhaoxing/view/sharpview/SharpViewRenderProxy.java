@@ -2,8 +2,13 @@ package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SharpViewRenderProxy {
@@ -21,6 +26,13 @@ public class SharpViewRenderProxy {
     private float mBorder;
 
     private int mBorderColor;
+
+    public void setBgColor(int[] bgColor) {
+        mBgColors = bgColor;
+        refreshView();
+    }
+
+    private int[] mBgColors;
 
     public void setCornerRadii(float leftTop,float rightTop,float rightBottom,float leftBottom) {
         mCornerRadii[0] = leftTop;
@@ -80,18 +92,32 @@ public class SharpViewRenderProxy {
                 mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(),mView.getPaddingRight(), (int) (mView.getPaddingBottom() + mSharpSize));
                 break;
         }
+        int start = a.getColor(R.styleable.SharpTextView_startBgColor, -1);
+        int middle  = a.getColor(R.styleable.SharpTextView_middleBgColor, -1);
+        int end  = a.getColor(R.styleable.SharpTextView_endBgColor, -1);
+        if (start != -1  && end != -1) {
+            if (middle != -1) {
+                mBgColors = new int[]{start, middle, end};
+            } else {
+                mBgColors = new int[]{start, end};
+            }
+        }
         a.recycle();
         refreshView();
     }
 
     private void refreshView() {
-        SharpDrawable bd;
+        SharpDrawable bd ;
         if (mView.getBackground() instanceof SharpDrawable) {
             bd = (SharpDrawable) mView.getBackground();
         } else {
-            bd = new SharpDrawable();
+            bd =  new SharpDrawable(GradientDrawable.Orientation.LEFT_RIGHT, null);
         }
-        bd.setBgColor(mBackgroundColor);
+        if (mBgColors != null) {
+            bd.setColors(mBgColors);
+        } else {
+            bd.setBgColor(mBackgroundColor);
+        }
         bd.setSharpSize(mSharpSize);
         bd.setArrowDirection(mArrowDirection);
         bd.setCornerRadius(mRadius);
@@ -101,7 +127,7 @@ public class SharpViewRenderProxy {
         if (mRadius == 0) {
             bd.setCornerRadii(mCornerRadii);
         }
-        mView.setBackgroundDrawable(bd);
+        mView.setBackground(bd);
     }
 
     public void setRadius(float radius) {

@@ -2,7 +2,8 @@ package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.EditText;
+
+import com.rey.material.widget.EditText;
 
 /**
  * Created by 曾宪梓 on 2017/12/28.

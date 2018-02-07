@@ -2,7 +2,8 @@ package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+
+import com.rey.material.widget.RelativeLayout;
 
 public class SharpRelativeLayout extends RelativeLayout implements SharpView {
 

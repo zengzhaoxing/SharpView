@@ -3,6 +3,9 @@
 
     <attr name="radius" format="dimension"/>
     <attr name="backgroundColor" format="color"/>
+    <attr name="startBgColor" format="color"/>
+    <attr name="middleBgColor" format="color"/>
+    <attr name="endBgColor" format="color"/>
     <attr name="arrowDirection">
         <enum name="left" value="1"/>
         <enum name="top" value="2"/>
@@ -21,6 +24,9 @@
     <declare-styleable name="SharpRelativeLayout">
         <attr name="radius"/>
         <attr name="backgroundColor"/>
+        <attr name="startBgColor"/>
+        <attr name="middleBgColor" />
+        <attr name="endBgColor" />
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
@@ -35,6 +41,9 @@
     <declare-styleable name="SharpLinearLayout">
         <attr name="radius"/>
         <attr name="backgroundColor"/>
+        <attr name="startBgColor"/>
+        <attr name="middleBgColor" />
+        <attr name="endBgColor" />
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
@@ -49,6 +58,9 @@
     <declare-styleable name="SharpTextView">
         <attr name="radius"/>
         <attr name="backgroundColor"/>
+        <attr name="startBgColor"/>
+        <attr name="middleBgColor" />
+        <attr name="endBgColor" />
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>
@@ -63,6 +75,9 @@
     <declare-styleable name="SharpEditText">
         <attr name="radius"/>
         <attr name="backgroundColor"/>
+        <attr name="startBgColor"/>
+        <attr name="middleBgColor" />
+        <attr name="endBgColor" />
         <attr name="arrowDirection"/>
         <attr name = "relativePosition"/>
         <attr name = "sharpSize"/>

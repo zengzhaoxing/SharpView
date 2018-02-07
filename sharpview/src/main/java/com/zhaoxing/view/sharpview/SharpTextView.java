@@ -2,7 +2,8 @@ package com.zhaoxing.view.sharpview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.TextView;
+
+import com.rey.material.widget.TextView;
 
 public class SharpTextView extends TextView implements SharpView {
 

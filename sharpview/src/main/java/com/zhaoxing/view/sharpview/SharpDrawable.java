@@ -12,8 +12,15 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
+import android.support.annotation.ColorInt;
 
 class SharpDrawable extends GradientDrawable {
+
+
+    SharpDrawable(Orientation orientation, @ColorInt int[] colors) {
+        super(orientation, colors);
+        init();
+    }
 
     void setBgColor(int bgColor) {
         mBgColor = bgColor;
@@ -73,6 +80,11 @@ class SharpDrawable extends GradientDrawable {
     private PointF[] mPointFs;
 
     SharpDrawable() {
+       super();
+        init();
+    }
+
+    private void init() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setAntiAlias(true);
         mRect = new RectF();
