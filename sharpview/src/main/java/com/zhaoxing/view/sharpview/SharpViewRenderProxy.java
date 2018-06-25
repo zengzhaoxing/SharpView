@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,6 +15,42 @@ import java.util.List;
 public class SharpViewRenderProxy {
 
     private View mView;
+
+    public float getRadius() {
+        return mRadius;
+    }
+
+    public int getBackgroundColor() {
+        return mBackgroundColor;
+    }
+
+    public float getRelativePosition() {
+        return mRelativePosition;
+    }
+
+    public float getSharpSize() {
+        return mSharpSize;
+    }
+
+    public float getBorder() {
+        return mBorder;
+    }
+
+    public int getBorderColor() {
+        return mBorderColor;
+    }
+
+    public int[] getBgColors() {
+        return mBgColors;
+    }
+
+    public float[] getCornerRadii() {
+        return mCornerRadii;
+    }
+
+    public SharpView.ArrowDirection getArrowDirection() {
+        return mArrowDirection;
+    }
 
     private float mRadius;
 
@@ -77,19 +114,15 @@ public class SharpViewRenderProxy {
         switch (direction) {
             case 1:
                 mArrowDirection = SharpView.ArrowDirection.LEFT;
-                mView.setPadding((int) (mView.getPaddingLeft() + mSharpSize),mView.getPaddingTop(),mView.getPaddingRight(),mView.getPaddingBottom());
                 break;
             case 2:
                 mArrowDirection = SharpView.ArrowDirection.TOP;
-                mView.setPadding(mView.getPaddingLeft(), (int) (mView.getPaddingTop() + mSharpSize),mView.getPaddingRight(),mView.getPaddingBottom());
                 break;
             case 3:
                 mArrowDirection =  SharpView.ArrowDirection.RIGHT;
-                mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(), (int) (mView.getPaddingRight() + mSharpSize),mView.getPaddingBottom());
                 break;
             case 4:
                 mArrowDirection = SharpView.ArrowDirection.BOTTOM;
-                mView.setPadding(mView.getPaddingLeft(),mView.getPaddingTop(),mView.getPaddingRight(), (int) (mView.getPaddingBottom() + mSharpSize));
                 break;
         }
         int start = a.getColor(R.styleable.SharpTextView_startBgColor, -1);
@@ -106,6 +139,8 @@ public class SharpViewRenderProxy {
         refreshView();
     }
 
+    SharpDrawable mSharpDrawable;
+
     private void refreshView() {
         SharpDrawable bd ;
         if (mView.getBackground() instanceof SharpDrawable) {
@@ -113,6 +148,7 @@ public class SharpViewRenderProxy {
         } else {
             bd =  new SharpDrawable(GradientDrawable.Orientation.LEFT_RIGHT, null);
         }
+        mSharpDrawable = bd;
         if (mBgColors != null) {
             bd.setColors(mBgColors);
         } else {
@@ -127,7 +163,11 @@ public class SharpViewRenderProxy {
         if (mRadius == 0) {
             bd.setCornerRadii(mCornerRadii);
         }
-        mView.setBackground(bd);
+        if (mView instanceof SharpImageView) {
+            mView.invalidate();
+        } else {
+            mView.setBackground(bd);
+        }
     }
 
     public void setRadius(float radius) {

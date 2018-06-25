@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.support.annotation.ColorInt;
+import android.util.Log;
 
 class SharpDrawable extends GradientDrawable {
 
@@ -37,17 +38,17 @@ class SharpDrawable extends GradientDrawable {
     }
 
     void setRelativePosition(float relativePosition) {
-        mRelativePosition = Math.min(Math.max(relativePosition,0),1);
+        mRelativePosition = Math.min(Math.max(relativePosition, 0), 1);
     }
 
     void setBorder(float border) {
         mBorder = border;
-        super.setStroke((int) mBorder,mBorderColor);
+        super.setStroke((int) mBorder, mBorderColor);
     }
 
     void setBorderColor(int borderColor) {
         mBorderColor = borderColor;
-        super.setStroke((int) mBorder,mBorderColor);
+        super.setStroke((int) mBorder, mBorderColor);
     }
 
     void setSharpSize(float sharpSize) {
@@ -71,6 +72,10 @@ class SharpDrawable extends GradientDrawable {
      */
     private float mRelativePosition;
 
+    void setPaint(Paint paint) {
+        mPaint = paint;
+    }
+
     private Paint mPaint;
 
     private RectF mRect;
@@ -80,7 +85,7 @@ class SharpDrawable extends GradientDrawable {
     private PointF[] mPointFs;
 
     SharpDrawable() {
-       super();
+        super();
         init();
     }
 
@@ -105,51 +110,51 @@ class SharpDrawable extends GradientDrawable {
             int top = bounds.top;
             int right = bounds.right;
             int bottom = bounds.bottom;
-            float length ;
-            switch (mArrowDirection){
+            float length;
+            switch (mArrowDirection) {
                 case LEFT:
                     left += mSharpSize;
                     length = Math.max(mRelativePosition * bounds.height() + bounds.top, mSharpSize + mCornerRadius);
-                    length = Math.min(length,bounds.height() - mSharpSize - mCornerRadius);
-                    mPointFs[0].set(bounds.left,length + bounds.top);
-                    mPointFs[1].set(mPointFs[0].x + mSharpSize,mPointFs[0].y - mSharpSize);
-                    mPointFs[2].set(mPointFs[0].x + mSharpSize,mPointFs[0].y + mSharpSize);
-                    mRect.set(left,top,right,bottom);
+                    length = Math.min(length, bounds.height() - mSharpSize - mCornerRadius);
+                    mPointFs[0].set(bounds.left, length + bounds.top);
+                    mPointFs[1].set(left, mPointFs[0].y - mSharpSize);
+                    mPointFs[2].set(left, mPointFs[0].y + mSharpSize);
+                    mRect.set(left, top, right, bottom);
                     break;
                 case TOP:
                     top += mSharpSize;
                     length = Math.max(mRelativePosition * bounds.width() + bounds.top, mSharpSize + mCornerRadius);
-                    length = Math.min(length,bounds.width() - mSharpSize - mCornerRadius);
-                    mPointFs[0].set(bounds.left + length,bounds.top);
-                    mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y + mSharpSize);
-                    mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y + mSharpSize);
-                    mRect.set(left,top,right,bottom);
+                    length = Math.min(length, bounds.width() - mSharpSize - mCornerRadius);
+                    mPointFs[0].set(bounds.left + length, bounds.top);
+                    mPointFs[1].set(mPointFs[0].x - mSharpSize, top);
+                    mPointFs[2].set(mPointFs[0].x + mSharpSize, top);
+                    mRect.set(left, top, right, bottom);
                     break;
                 case RIGHT:
                     right -= mSharpSize;
                     length = Math.max(mRelativePosition * bounds.height() + bounds.top, mSharpSize + mCornerRadius);
-                    length = Math.min(length,bounds.height() - mSharpSize - mCornerRadius);
-                    mPointFs[0].set(bounds.right,length + bounds.top);
-                    mPointFs[1].set(mPointFs[0].x - mSharpSize,mPointFs[0].y - mSharpSize);
-                    mPointFs[2].set(mPointFs[0].x - mSharpSize,mPointFs[0].y + mSharpSize);
-                    mRect.set(left,top,right,bottom);
+                    length = Math.min(length, bounds.height() - mSharpSize - mCornerRadius);
+                    mPointFs[0].set(bounds.right, length + bounds.top);
+                    mPointFs[1].set(right, mPointFs[0].y - mSharpSize);
+                    mPointFs[2].set(right, mPointFs[0].y + mSharpSize);
+                    mRect.set(left, top, right, bottom);
                     break;
                 case BOTTOM:
                     bottom -= mSharpSize;
                     length = Math.max(mRelativePosition * bounds.width() + bounds.top, mSharpSize + mCornerRadius);
-                    length = Math.min(length,bounds.width() - mSharpSize - mCornerRadius);
-                    mPointFs[0].set(bounds.left + length,bounds.bottom);
-                    mPointFs[1].set(mPointFs[0].x - mSharpSize, mPointFs[0].y - mSharpSize);
-                    mPointFs[2].set(mPointFs[0].x + mSharpSize, mPointFs[0].y - mSharpSize);
-                    mRect.set(left,top,right,bottom);
+                    length = Math.min(length, bounds.width() - mSharpSize - mCornerRadius);
+                    mPointFs[0].set(bounds.left + length, bounds.bottom);
+                    mPointFs[1].set(mPointFs[0].x - mSharpSize, bottom);
+                    mPointFs[2].set(mPointFs[0].x + mSharpSize, bottom);
+                    mRect.set(left, top, right, bottom);
                     break;
             }
             mPath.reset();
-            mPath.addRoundRect(mRect,mCornerRadius,mCornerRadius, Path.Direction.CW);
+            mPath.addRoundRect(mRect, mCornerRadius, mCornerRadius, Path.Direction.CW);
             mPath.moveTo(mPointFs[0].x, mPointFs[0].y);
             mPath.lineTo(mPointFs[1].x, mPointFs[1].y);
             mPath.lineTo(mPointFs[2].x, mPointFs[2].y);
-            mPath.close();
+            mPath.lineTo(mPointFs[0].x, mPointFs[0].y);
             mPaint.setColor(mBgColor);
             canvas.drawPath(mPath, mPaint);
         }

@@ -72,6 +72,17 @@
         <attr name="left_bottom_radius"/>
     </declare-styleable>
 
+    <declare-styleable name="SharpImageView">
+        <attr name="radius"/>
+        <attr name="arrowDirection"/>
+        <attr name = "relativePosition"/>
+        <attr name = "sharpSize"/>
+        <attr name="left_top_radius"/>
+        <attr name="right_top_radius"/>
+        <attr name="right_bottom_radius"/>
+        <attr name="left_bottom_radius"/>
+    </declare-styleable>
+
     <declare-styleable name="SharpEditText">
         <attr name="radius"/>
         <attr name="backgroundColor"/>

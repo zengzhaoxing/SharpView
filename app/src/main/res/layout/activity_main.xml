@@ -10,6 +10,27 @@
                 android:orientation="vertical"
                 android:background="@android:color/white">
 
+    <ImageView
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"/>
+
+    <com.zhaoxing.view.sharpview.SharpImageView
+        android:id="@+id/eee"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/test"
+        android:scaleType="fitXY"
+        app:left_bottom_radius="10dp"
+        app:border="2dp"
+        app:borderColor="@color/colorPrimary"
+        app:relativePosition="50%"
+        app:arrowDirection="right"
+        app:sharpSize="10dp"
+       />
+
+
     <com.zhaoxing.view.sharpview.SharpTextView
         android:layout_width="100dp"
         android:layout_height="50dp"

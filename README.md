@@ -117,6 +117,17 @@ sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
 
 ```
 
+
+## Usage
+目前支持的气泡尖角或圆角控件和继承关系如下
+```java
+public class SharpEditText extends EditText
+public class SharpTextView extends TextView 
+public class SharpLinearLayout extends LinearLayout
+public class SharpRelativeLayout extends RelativeLayout 
+public class SharpImageView extends ImageView 
+```
+
 # License
 
 Copyright 2017 zengzhaoxing
