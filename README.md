@@ -127,6 +127,9 @@ public class SharpLinearLayout extends LinearLayout
 public class SharpRelativeLayout extends RelativeLayout 
 public class SharpImageView extends ImageView 
 ```
+# Author 
+name ： 曾宪梓
+email ： 1071481464@qq.com
 
 # License
 
