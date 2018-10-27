@@ -142,12 +142,7 @@ public class SharpViewRenderProxy {
     SharpDrawable mSharpDrawable;
 
     private void refreshView() {
-        SharpDrawable bd ;
-        if (mView.getBackground() instanceof SharpDrawable) {
-            bd = (SharpDrawable) mView.getBackground();
-        } else {
-            bd =  new SharpDrawable(GradientDrawable.Orientation.LEFT_RIGHT, null);
-        }
+        SharpDrawable bd = new SharpDrawable(GradientDrawable.Orientation.LEFT_RIGHT, null);
         mSharpDrawable = bd;
         if (mBgColors != null) {
             bd.setColors(mBgColors);
@@ -177,6 +172,7 @@ public class SharpViewRenderProxy {
 
     public void setBackgroundColor(int backgroundColor) {
         mBackgroundColor = backgroundColor;
+        mBgColors = null；
         refreshView();
     }
 
