@@ -172,7 +172,7 @@ public class SharpViewRenderProxy {
 
     public void setBackgroundColor(int backgroundColor) {
         mBackgroundColor = backgroundColor;
-        mBgColors = null；
+        mBgColors = null;
         refreshView();
     }
 

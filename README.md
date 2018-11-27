@@ -24,7 +24,7 @@ custom TextView,LinearLayout,RelativeLayout with sharp
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.zengzhaoxing:SharpView:v2.3.0'
+	        compile 'com.github.zengzhaoxing:SharpView:v2.4.1'
 	}
 
 ```
@@ -42,7 +42,7 @@ Step 2. Add the dependency
 <dependency>
     <groupId>com.github.zengzhaoxing</groupId>
     <artifactId>SharpView</artifactId>
-    <version>v2.3.0</version>
+    <version>v2.4.1</version>
 </dependency>
 
 ```
@@ -52,16 +52,16 @@ Step 2. Add the dependency
 
 name | format | instructions
 -----|------|----
-radius    | dimension    | radius of the view corner
-backgroundColor   | color     | backgroundColor
-arrowDirection    | enum    | the sharp location,can be one of the(top,left,right,bottom)
-relativePosition   | fraction| relative position of the sharp
-sharpSize    | dimension    | sharp length,default is 0
-border    | dimension    | border width,default is 0
-borderColor    | color    | color of the border
-startBgColor    | color    | 渐变初始颜色
-middleBgColor    | color    | 渐变中间颜色
-endBgColor    | color    | 渐变结束颜色
+radius    | dimension    | 圆角大小
+backgroundColor   | color     | 背景颜色（注意不要是用安卓原生的背景相关的属性（如:background,backgroundResource等））
+arrowDirection    | enum    | 尖叫汽包相对位置(top,left,right,bottom)
+relativePosition   | fraction| 尖叫汽包相对位置，百分比
+sharpSize    | dimension    | 尖叫汽包大小，为0表示不显示尖叫，默认是0
+border    | dimension    | 边框大小，默认是0
+borderColor    | color    | 边框颜色
+startBgColor    | color    | 渐变初始颜色(渐变时必选)
+middleBgColor    | color    | 渐变中间颜色(渐变时可选)
+endBgColor    | color    | 渐变结束颜色(渐变时必选)
 
 渐变颜色只有在sharpSize（没有尖角）为0时有效
 
@@ -108,18 +108,18 @@ endBgColor    | color    | 渐变结束颜色
 ```java
 
 SharpLinearLayout sharpLinearLayout = (SharpLinearLayout) findViewById(R.id.sharp_ll);
-//get the SharpViewRenderProxy of the sharpView to refresh sharp
+//get the SharpViewRenderProxy of the sharpView to refresh sharp）
 sharpLinearLayout.getRenderProxy().setArrowDirection(SharpView.ArrowDirection.BOTTOM);
 sharpLinearLayout.getRenderProxy().setSharpSize(50);
 sharpLinearLayout.getRenderProxy().setRelativePosition(0.8f);
 sharpLinearLayout.getRenderProxy().setRadius(20);
-sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);
+sharpLinearLayout.getRenderProxy().setBackgroundColor(0xff000000);//注意不要使用安卓原生的设置背景的相关方法（如setBackground，setBackgroundResource等）
 
 ```
 
 
 ## Usage
-目前支持的气泡尖角或圆角控件和继承关系如下
+目前支持的气泡尖角或圆角控件和安卓原生控件继承关系如下
 ```java
 public class SharpEditText extends EditText
 public class SharpTextView extends TextView 
