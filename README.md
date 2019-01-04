@@ -4,7 +4,7 @@
 custom TextView,LinearLayout,RelativeLayout with sharp
 
 ## Screenshots
-<a href="ext/sharp_demo.png"><img src="ext/sharp_demo.png" width="50%" height="50%"/></a>
+<a href="https://img-blog.csdnimg.cn/20181127121648480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plbmd4aWFuemk=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20181127121648480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plbmd4aWFuemk=,size_16,color_FFFFFF,t_70" width="50%" height="50%"/></a>
 
 ## Import
 ```java
