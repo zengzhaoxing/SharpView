@@ -51,14 +51,14 @@ public class SharpImageView extends ImageView implements SharpView{
         init(context,attrs,defStyleAttr);
     }
 
-    Path mPath = new Path();
-
     @Override
     protected void onDraw(Canvas canvas) {
         if (mSoftBitmap.get() == null || mSoftOutBitmap.get() == null) {
             initBitmap();
         }
         mPaint.setAntiAlias(true);
+        mCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        mOutCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         super.onDraw(mCanvas);
         mPaint.setColor(Color.BLACK);
         mSharpViewRenderProxy.mSharpDrawable.setBounds(0,0,getWidth(),getHeight());
