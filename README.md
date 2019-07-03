@@ -56,14 +56,14 @@ radius    | dimension    | 圆角大小
 backgroundColor   | color     | 背景颜色（注意不要是用安卓原生的背景相关的属性（如:background,backgroundResource等））
 arrowDirection    | enum    | 尖叫汽包相对位置(top,left,right,bottom)
 relativePosition   | fraction| 尖叫汽包相对位置，百分比
-sharpSize    | dimension    | 尖叫汽包大小，为0表示不显示尖叫，默认是0
+sharpSize    | dimension    | 尖叫汽包大小，为0表示不显示尖角，默认是0
 border    | dimension    | 边框大小，默认是0
 borderColor    | color    | 边框颜色
 startBgColor    | color    | 渐变初始颜色(渐变时必选)
 middleBgColor    | color    | 渐变中间颜色(渐变时可选)
 endBgColor    | color    | 渐变结束颜色(渐变时必选)
 
-渐变颜色只有在sharpSize（没有尖角）为0时有效
+渐变颜色只和border只有在sharpSize为0时（没有尖角）有效
 
 ## Usage
 
