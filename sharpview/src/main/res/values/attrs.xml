@@ -1,103 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="radius" format="dimension"/>
-    <attr name="backgroundColor" format="color"/>
-    <attr name="startBgColor" format="color"/>
-    <attr name="middleBgColor" format="color"/>
-    <attr name="endBgColor" format="color"/>
+    <attr name="radius" format="dimension" />
+    <attr name="backgroundColor" format="color" />
+    <attr name="startBgColor" format="color" />
+    <attr name="middleBgColor" format="color" />
+    <attr name="endBgColor" format="color" />
     <attr name="arrowDirection">
-        <enum name="left" value="1"/>
-        <enum name="top" value="2"/>
-        <enum name="right" value="3"/>
-        <enum name="bottom" value="4"/>
+        <enum name="left" value="1" />
+        <enum name="top" value="2" />
+        <enum name="right" value="3" />
+        <enum name="bottom" value="4" />
+        <enum name="top_bottom" value="5" />
+        <enum name="left_right" value="6" />
     </attr>
-    <attr name = "relativePosition" format = "fraction" />
-    <attr name = "sharpSize" format = "dimension" />
-    <attr name="border" format="dimension"/>
-    <attr name="borderColor" format="color"/>
-    <attr name="left_top_radius" format="dimension"/>
-    <attr name="right_top_radius" format="dimension"/>
-    <attr name="right_bottom_radius" format="dimension"/>
-    <attr name="left_bottom_radius" format="dimension"/>
+    <attr name="relativePosition" format="fraction" />
+    <attr name="sharpSize" format="dimension" />
+    <attr name="border" format="dimension" />
+    <attr name="borderColor" format="color" />
+    <attr name="left_top_radius" format="dimension" />
+    <attr name="right_top_radius" format="dimension" />
+    <attr name="right_bottom_radius" format="dimension" />
+    <attr name="left_bottom_radius" format="dimension" />
 
     <declare-styleable name="SharpRelativeLayout">
-        <attr name="radius"/>
-        <attr name="backgroundColor"/>
-        <attr name="startBgColor"/>
+        <attr name="radius" />
+        <attr name="backgroundColor" />
+        <attr name="startBgColor" />
         <attr name="middleBgColor" />
         <attr name="endBgColor" />
-        <attr name="arrowDirection"/>
-        <attr name = "relativePosition"/>
-        <attr name = "sharpSize"/>
-        <attr name="border"/>
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="border" />
         <attr name="borderColor" />
-        <attr name="left_top_radius"/>
-        <attr name="right_top_radius"/>
-        <attr name="right_bottom_radius"/>
-        <attr name="left_bottom_radius"/>
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
     </declare-styleable>
 
     <declare-styleable name="SharpLinearLayout">
-        <attr name="radius"/>
-        <attr name="backgroundColor"/>
-        <attr name="startBgColor"/>
+        <attr name="radius" />
+        <attr name="backgroundColor" />
+        <attr name="startBgColor" />
         <attr name="middleBgColor" />
         <attr name="endBgColor" />
-        <attr name="arrowDirection"/>
-        <attr name = "relativePosition"/>
-        <attr name = "sharpSize"/>
-        <attr name="border"/>
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="border" />
         <attr name="borderColor" />
-        <attr name="left_top_radius"/>
-        <attr name="right_top_radius"/>
-        <attr name="right_bottom_radius"/>
-        <attr name="left_bottom_radius"/>
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
+    </declare-styleable>
+
+    <declare-styleable name="FluteLinearLayout">
+        <attr name="radius" />
+        <attr name="backgroundColor" />
+        <attr name="startBgColor" />
+        <attr name="middleBgColor" />
+        <attr name="endBgColor" />
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="border" />
+        <attr name="borderColor" />
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
     </declare-styleable>
 
     <declare-styleable name="SharpTextView">
-        <attr name="radius"/>
-        <attr name="backgroundColor"/>
-        <attr name="startBgColor"/>
+        <attr name="radius" />
+        <attr name="backgroundColor" />
+        <attr name="startBgColor" />
         <attr name="middleBgColor" />
         <attr name="endBgColor" />
-        <attr name="arrowDirection"/>
-        <attr name = "relativePosition"/>
-        <attr name = "sharpSize"/>
-        <attr name="border"/>
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="border" />
         <attr name="borderColor" />
-        <attr name="left_top_radius"/>
-        <attr name="right_top_radius"/>
-        <attr name="right_bottom_radius"/>
-        <attr name="left_bottom_radius"/>
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
     </declare-styleable>
 
     <declare-styleable name="SharpImageView">
-        <attr name="radius"/>
-        <attr name="arrowDirection"/>
-        <attr name = "relativePosition"/>
-        <attr name = "sharpSize"/>
-        <attr name="left_top_radius"/>
-        <attr name="right_top_radius"/>
-        <attr name="right_bottom_radius"/>
-        <attr name="left_bottom_radius"/>
+        <attr name="radius" />
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
     </declare-styleable>
 
     <declare-styleable name="SharpEditText">
-        <attr name="radius"/>
-        <attr name="backgroundColor"/>
-        <attr name="startBgColor"/>
+        <attr name="radius" />
+        <attr name="backgroundColor" />
+        <attr name="startBgColor" />
         <attr name="middleBgColor" />
         <attr name="endBgColor" />
-        <attr name="arrowDirection"/>
-        <attr name = "relativePosition"/>
-        <attr name = "sharpSize"/>
-        <attr name="border"/>
+        <attr name="arrowDirection" />
+        <attr name="relativePosition" />
+        <attr name="sharpSize" />
+        <attr name="border" />
         <attr name="borderColor" />
-        <attr name="left_top_radius"/>
-        <attr name="right_top_radius"/>
-        <attr name="right_bottom_radius"/>
-        <attr name="left_bottom_radius"/>
+        <attr name="left_top_radius" />
+        <attr name="right_top_radius" />
+        <attr name="right_bottom_radius" />
+        <attr name="left_bottom_radius" />
     </declare-styleable>
 
 </resources>
