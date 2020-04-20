@@ -170,7 +170,6 @@ class FluteSharpDrawable extends GradientDrawable {
                     mOvalPath.addArc(mOvalRight, 90, 180);
                     break;
             }
-            // TODO
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mPath.op(mOvalPath, Path.Op.DIFFERENCE);
             }

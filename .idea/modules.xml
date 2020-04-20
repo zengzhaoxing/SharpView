@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Demo-SharpView.iml" filepath="$PROJECT_DIR$/Android-Demo-SharpView.iml" group="SharpView" />
       <module fileurl="file://$PROJECT_DIR$/SharpView.iml" filepath="$PROJECT_DIR$/SharpView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/SharpView-app.iml" filepath="$PROJECT_DIR$/app/SharpView-app.iml" group="SharpView/app" />
+      <module fileurl="file://$PROJECT_DIR$/sharpview/SharpView-sharpview.iml" filepath="$PROJECT_DIR$/sharpview/SharpView-sharpview.iml" group="SharpView/sharpview" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharpview/sharpview.iml" filepath="$PROJECT_DIR$/sharpview/sharpview.iml" />
