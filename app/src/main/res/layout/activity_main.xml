@@ -6,7 +6,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:paddingTop="100dp"
+                android:paddingTop="10dp"
                 android:orientation="vertical"
                 android:background="@android:color/white">
 
@@ -53,7 +53,7 @@
         app:arrowDirection="bottom"
         app:backgroundColor="#ffff0000"
         app:relativePosition="20%"
-        app:sharpSize="0dp"
+        app:sharpSize="5dp"
         />
 
     <com.zhaoxing.view.sharpview.SharpLinearLayout
@@ -61,14 +61,12 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:orientation="vertical"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:paddingLeft="10dp"
+        android:padding="10dp"
         android:layout_marginTop="50dp"
         app:radius="5dp"
         app:arrowDirection="right"
         app:backgroundColor="#f0000000"
-        app:relativePosition="100%"
+        app:relativePosition="50%"
         app:sharpSize="10dp"
 
         >
@@ -76,6 +74,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:textColor="@android:color/white"
             android:background="@android:color/holo_green_light"
             android:text="a child inside the SharpLinearLayout"/>
@@ -88,6 +87,38 @@
             android:text="this is another child view"/>
 
     </com.zhaoxing.view.sharpview.SharpLinearLayout>
+
+    <com.zhaoxing.view.sharpview.FluteLinearLayout
+        android:id="@+id/flute_ll"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="50dp"
+        app:radius="5dp"
+        app:arrowDirection="left_right"
+        app:backgroundColor="#f0000000"
+        app:relativePosition="50%"
+        app:sharpSize="10dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_green_light"
+            android:text="a child inside the FluteLinearLayout"/>
+
+        <TextView
+            android:id="@+id/flute_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_light"
+            android:text="this is another child view"/>
+
+    </com.zhaoxing.view.sharpview.FluteLinearLayout>
 
 
 
