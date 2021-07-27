@@ -65,11 +65,14 @@
         android:paddingTop="5dp"
         android:paddingLeft="10dp"
         android:layout_marginTop="50dp"
-        app:radius="5dp"
-        app:arrowDirection="right"
-        app:backgroundColor="#f0000000"
-        app:relativePosition="100%"
-        app:sharpSize="10dp"
+        android:padding="35dp"
+        app:radius="10dp"
+        app:border="2dp"
+        app:borderColor="#FF0000"
+        app:arrowDirection="left"
+        app:backgroundColor="#ff000000"
+        app:relativePosition="50%"
+        app:sharpSize="15dp"
 
         >
 

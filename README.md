@@ -63,7 +63,7 @@ startBgColor    | color    | 渐变初始颜色(渐变时必选)
 middleBgColor    | color    | 渐变中间颜色(渐变时可选)
 endBgColor    | color    | 渐变结束颜色(渐变时必选)
 
-渐变颜色只和border只有在sharpSize为0时（没有尖角）有效
+渐变颜色只有在sharpSize为0时（没有尖角）有效
 
 ## Usage
 

@@ -12,6 +12,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.util.Log;
 
@@ -84,6 +85,8 @@ class SharpDrawable extends GradientDrawable {
 
     private PointF[] mPointFs;
 
+    private RectF mOvalRect[] = new RectF[4];
+
     SharpDrawable() {
         super();
         init();
@@ -98,7 +101,13 @@ class SharpDrawable extends GradientDrawable {
         mPointFs[0] = new PointF();
         mPointFs[1] = new PointF();
         mPointFs[2] = new PointF();
+
+        mOvalRect[0] = new RectF();
+        mOvalRect[1] = new RectF();
+        mOvalRect[2] = new RectF();
+        mOvalRect[3] = new RectF();
     }
+
 
     @Override
     public void draw(Canvas canvas) {
@@ -157,6 +166,59 @@ class SharpDrawable extends GradientDrawable {
             mPath.lineTo(mPointFs[0].x, mPointFs[0].y);
             mPaint.setColor(mBgColor);
             canvas.drawPath(mPath, mPaint);
+
+
+
+            mPaint.setColor(mBorderColor);
+            mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setStrokeWidth(mBorder);
+            switch (mArrowDirection) {
+                case LEFT:
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.top,mRect.right - mCornerRadius,mRect.top,mPaint);
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.bottom,mRect.right - mCornerRadius,mRect.bottom,mPaint);
+                    canvas.drawLine(mRect.right,mRect.top + mCornerRadius,mRect.right,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.left,mRect.top + mCornerRadius,mRect.left,mPointFs[1].y,mPaint);
+                    canvas.drawLine(mRect.left,mPointFs[2].y,mRect.left,mRect.bottom - mCornerRadius,mPaint);
+                    break;
+                case TOP:
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.bottom,mRect.right - mCornerRadius,mRect.bottom,mPaint);
+                    canvas.drawLine(mRect.left,mRect.top + mCornerRadius,mRect.left,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.right,mRect.top + mCornerRadius,mRect.right,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.top,mPointFs[1].x,mRect.top,mPaint);
+                    canvas.drawLine(mPointFs[2].x, mRect.top, mRect.right - mCornerRadius, mRect.top, mPaint);
+                    break;
+                case RIGHT:
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.top,mRect.right - mCornerRadius,mRect.top,mPaint);
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.bottom,mRect.right - mCornerRadius,mRect.bottom,mPaint);
+                    canvas.drawLine(mRect.left,mRect.top + mCornerRadius,mRect.left,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.right,mRect.top + mCornerRadius,mRect.right,mPointFs[1].y,mPaint);
+                    canvas.drawLine(mRect.right,mPointFs[2].y,mRect.right,mRect.bottom - mCornerRadius,mPaint);
+                    break;
+                case BOTTOM:
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.top,mRect.right - mCornerRadius,mRect.top,mPaint);
+                    canvas.drawLine(mRect.left,mRect.top + mCornerRadius,mRect.left,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.right,mRect.top + mCornerRadius,mRect.right,mRect.bottom - mCornerRadius,mPaint);
+                    canvas.drawLine(mRect.left + mCornerRadius,mRect.bottom,mPointFs[1].x,mRect.bottom,mPaint);
+                    canvas.drawLine(mPointFs[2].x, mRect.bottom, mRect.right - mCornerRadius, mRect.bottom, mPaint);
+                    break;
+            }
+
+            if (mCornerRadius > 0) {
+                float d = 2 * mCornerRadius;
+
+                mOvalRect[0].set(mRect.left,mRect.top,mRect.left + d,mRect.top + d);
+                mOvalRect[1].set(mRect.right - d,mRect.top,mRect.right,mRect.top + d);
+                mOvalRect[2].set(mRect.left,mRect.bottom - d,mRect.left + d,mRect.bottom);
+                mOvalRect[3].set(mRect.right - d,mRect.bottom - d,mRect.right,mRect.bottom);
+                canvas.drawArc(mOvalRect[0],180,90,false,mPaint);
+                canvas.drawArc(mOvalRect[1],-90,90,false,mPaint);
+                canvas.drawArc(mOvalRect[2],90,90,false,mPaint);
+                canvas.drawArc(mOvalRect[3],90,-90,false,mPaint);
+            }
+
+            canvas.drawLine(mPointFs[0].x, mPointFs[0].y, mPointFs[1].x, mPointFs[1].y, mPaint);
+            canvas.drawLine(mPointFs[0].x, mPointFs[0].y, mPointFs[2].x, mPointFs[2].y, mPaint);
+
         }
     }
 
